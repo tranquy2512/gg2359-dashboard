@@ -9,7 +9,7 @@ class User extends Component {
   constructor(props) {
     super(props);
     this.users = [];
-    this.getUserList = this.getUserList.bind(this);
+    this.getUserHistory = this.getUserHistory.bind(this);
     this.moveToHistory = this.moveToHistory.bind(this);
     this.state = {
       isLoading: false
@@ -17,15 +17,15 @@ class User extends Component {
   }
 
   componentDidMount() {
-    this.getUserList();
+    this.getUserHistory();
   }
 
-  async getUserList() {
+  async getUserHistory() {
     try {
       this.setState({
         isLoading: true
       });
-      var result = await userService.getUserList();
+      var result = await userService.getUserHistory();
       if (result.data) {
         this.users = result.data;
         this.setState({

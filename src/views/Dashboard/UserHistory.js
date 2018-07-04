@@ -15,19 +15,20 @@ class UserHistory extends Component {
     this.state = {
       isLoading: false
     }
+    this.getUserHistory = this.getUserHistory.bind(this);
   }
 
   componentDidMount() {
-    this.getUserList();
+    this.getUserHistory();
   }
 
-  async getUserList() {
+  async getUserHistory() {
     try {
       var self = this;
       this.setState({
         isLoading: true
       });
-      var result = await userService.getUserList();
+      var result = await userService.getUserHistory();
       if (result.data) {
         this.users = result.data;
         this.users.forEach(user => {
