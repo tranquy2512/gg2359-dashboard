@@ -4,13 +4,13 @@ import { CardColumns, Badge, Card, CardHeader, CardBody, Row, Col, Table, Button
 import userService from '../../services/User/User';
 import BalancePopover from '../../components/CustomPopover/BalancePopover';
 import Loading from '../../components/Loading';
-
 class User extends Component {
 
   constructor(props) {
     super(props);
     this.users = [];
     this.getUserList = this.getUserList.bind(this);
+    this.moveToHistory = this.moveToHistory.bind(this);
     this.state = {
       isLoading: false
     }
@@ -45,7 +45,12 @@ class User extends Component {
     }
   }
 
+  moveToHistory(userId) {
+    this.props.history.push('/users/history/' + userId)
+  }
+
   render() {
+    var self = this;
     return (
       <div className="animated fadeIn">
         <Row>
@@ -61,18 +66,16 @@ class User extends Component {
               <Table responsive striped>
                   <thead>
                     <tr>
-                      <th>User Name</th>
-                      <th>Status</th>
-                      <th>Balances</th>
+                      <th>Id</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {
                       this.users.map(function(user) {
                         return <tr key={user.id}>
-                        <td>{user.username}</td>
-                        <td><Badge color="secondary">{user.status}</Badge></td>
-                        <td><BalancePopover title={'Balances'} buttonText={'View'} placement={'right'} id={user.id} balances={user.balance}/></td>
+                        <td>{user.id}</td>
+                        <td><Button onClick={() => {self.moveToHistory(user.id)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button></td>
                       </tr>
                       })
                     }

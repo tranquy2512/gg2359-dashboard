@@ -10,9 +10,15 @@ class Token extends Component {
     this.state = {
       isLoading: false
     }
+    this.moveToHistory = this.moveToHistory.bind(this);
+  }
+
+  moveToHistory(tokenId) {
+    this.props.history.push('/tokens/history/' + tokenId)
   }
 
   render() {
+    var self = this;
     return (
       <div className="animated fadeIn">
         <Row>
@@ -31,7 +37,7 @@ class Token extends Component {
                       <th>Ticker</th>
                       <th>Address</th>
                       <th>Decimal</th>
-                      <th>Action</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -39,19 +45,19 @@ class Token extends Component {
                       <td><Badge color="secondary">ETH</Badge></td>
                       <td>123123782</td>
                       <td>123213</td>
-                      <td><Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Edit</Button><span>  </span><Button type="submit" size="sm" color="danger"><i className="fa fa-dot-circle-o"></i> Delete</Button></td>
+                      <td><Button onClick={() => {self.moveToHistory(3)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button><span>  </span><Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Edit</Button><span>  </span><Button type="submit" size="sm" color="danger"><i className="fa fa-dot-circle-o"></i> Delete</Button></td>
                     </tr>
                     <tr>
                       <td><Badge color="secondary">EOS</Badge></td>
                       <td>123123782</td>
                       <td>123213</td>
-                      <td><Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Edit</Button><span>  </span><Button type="submit" size="sm" color="danger"><i className="fa fa-dot-circle-o"></i> Delete</Button></td>
+                      <td><Button onClick={() => {self.moveToHistory(2)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button><span>  </span><Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Edit</Button><span>  </span><Button type="submit" size="sm" color="danger"><i className="fa fa-dot-circle-o"></i> Delete</Button></td>
                     </tr>
                     <tr>
                       <td><Badge color="secondary">BTX</Badge></td>
                       <td>123123782</td>
                       <td>123213</td>
-                      <td><Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Edit</Button><span>  </span><Button type="submit" size="sm" color="danger"><i className="fa fa-dot-circle-o"></i> Delete</Button></td>
+                      <td><Button onClick={() => {self.moveToHistory(3)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button><span>  </span><Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Edit</Button><span>  </span><Button type="submit" size="sm" color="danger"><i className="fa fa-dot-circle-o"></i> Delete</Button></td>
                     </tr>
                   </tbody>
                 </Table>

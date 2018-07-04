@@ -12,7 +12,8 @@ import Token from '../../views/Dashboard/Token';
 import Balance from '../../views/Dashboard/Balance';
 import CreateToken from '../../views/Dashboard/CreateToken';
 import User from '../../views/Dashboard/User';
-
+import UserHistory from '../../views/Dashboard/UserHistory';
+import TokenHistory from '../../views/Dashboard/TokenHistory';
 class Full extends Component {
 
   constructor(props) {
@@ -33,7 +34,9 @@ class Full extends Component {
                 <Route exact path="/tokens" name="Tokens" component={Token} />
                 <Route exact path="/balances" name="Balances" component={Balance} />
                 <Route exact path="/tokens/create" name="Tokens" component={CreateToken} />
+                <Route exact path="/tokens/history/:tokenId" name="Token History" component={TokenHistory} />
                 <Route exact path="/users" name="Users" component={User} />
+                <Route exact path="/users/history/:userId" name="User history" component={UserHistory} />
                 <Redirect from="/" to="/dashboard" />
               </Switch>
             </Container>
