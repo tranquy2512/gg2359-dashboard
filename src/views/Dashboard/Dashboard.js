@@ -38,38 +38,6 @@ class Dashboard extends Component {
           <Col xs="12" md="6" lg="6">
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Balance
-              </CardHeader>
-              <CardBody>
-                <Form action="" method="post" encType="multipart/form-data" className="form-horizontal">
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="select">Select token</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="select" name="select" id="select">
-                        <option value="0">Please select</option>
-                        <option value="1">ETH</option>
-                        <option value="2">BTC</option>
-                        <option value="3">EOS</option>
-                      </Input>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label>Balance</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <p className="form-control-static">100.000</p>
-                    </Col>
-                  </FormGroup>
-                </Form>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xs="12" md="6" lg="6">
-            <Card>
-              <CardHeader>
                 <i className="fa fa-align-justify"></i> Deposite
               </CardHeader>
               <CardBody>
@@ -97,9 +65,7 @@ class Dashboard extends Component {
               </CardFooter>
             </Card>
           </Col>
-        </Row>
-        <Row>
-        <Col xs="12" md="6" lg="6">
+          <Col xs="12" md="6" lg="6">
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> WithDraw

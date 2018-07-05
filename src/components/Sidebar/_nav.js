@@ -20,14 +20,9 @@ export default {
       class: ""
     },
     {
-      name: 'Token list',
+      name: 'Tokens',
       url: '/tokens',
       icon: 'fa fa-dot-circle-o'
-    },
-    {
-      name: 'Create token',
-      url: '/tokens/create',
-      icon: 'fa fa-plus'
     },
     {
       title: true,

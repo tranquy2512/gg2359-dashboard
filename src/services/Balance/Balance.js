@@ -1,7 +1,7 @@
 import BaseService from "../Base";
 
 class Balance {
-  getAccountBalances() {
+  getTokenBalances() {
     return BaseService.get("/balances", BaseService.getOptions());
   }
 }

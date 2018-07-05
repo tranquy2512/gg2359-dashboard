@@ -10,22 +10,23 @@ class Token extends Component {
   constructor(props) {
     super(props);
     this.balances = [];
-    this.getAccountBalances = this.getAccountBalances.bind(this);
+    this.getTokenBalances = this.getTokenBalances.bind(this);
     this.state = {
       isLoading: false
     }
+    this.moveToHistory = this.moveToHistory.bind(this);
   }
 
   componentDidMount() {
-    this.getAccountBalances();
+    this.getTokenBalances();
   }
 
-  async getAccountBalances() {
+  async getTokenBalances() {
     try {
       this.setState({
         isLoading: true
       });
-      var result = await balanceService.getAccountBalances();
+      var result = await balanceService.getTokenBalances();
       if (result.data) {
         this.balances = result.data;
         this.setState({
@@ -45,7 +46,12 @@ class Token extends Component {
     }
   }
 
+  moveToHistory(tokenId) {
+    this.props.history.push('/tokens/history/' + tokenId)
+  }
+
   render() {
+    var self = this;
     return (
       <div className="animated fadeIn">
         <Row>
@@ -62,7 +68,9 @@ class Token extends Component {
                   <thead>
                     <tr>
                       <th>Ticker</th>
-                      <th>Amount</th>
+                      <th>Main Wallet's balance</th>
+                      <th>Sub Wallet's balance</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -71,6 +79,8 @@ class Token extends Component {
                         return <tr key={balance.id}>
                           <td><Badge color="secondary">{balance.ticker}</Badge></td>
                           <td>{balance['Total Amount']}</td>
+                          <td>{balance['Total Amount']}</td>
+                          <td><Button onClick={() => {self.moveToHistory(balance.ticker)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button></td>
                         </tr>
                       })
                     }
