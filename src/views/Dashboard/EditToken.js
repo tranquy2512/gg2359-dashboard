@@ -33,7 +33,8 @@ class EditToken extends Component {
   constructor(props) {
     super(props);
     this.inputs = {
-      address: ''
+      address: '',
+      decimal: ''
     }
     this.ticker = this.props.match.params.ticker;
     this.getToken = this.getToken.bind(this);
@@ -55,6 +56,7 @@ class EditToken extends Component {
       var result = await tokenService.getTokenByTicker(ticker);
       if (result.status === 200 || result.status == 201) {
         this.inputs.address.value = result.data.address;
+        this.inputs.decimal.value = result.data.decimal;
         this.setState({
           isLoading: false
         });
@@ -75,7 +77,8 @@ class EditToken extends Component {
         isLoading: true
       });
       var data = {
-        address: this.inputs.address.value
+        address: this.inputs.address.value,
+        decimal: this.inputs.decimal.value
       }
       var result = await tokenService.updateToken(this.ticker, data);
       if (result.status == 200 || result.status == 201) {
@@ -114,6 +117,14 @@ class EditToken extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input disabled={this.state.isLoading} innerRef={input => (this.inputs.address = input)} type="address" name="address" placeholder="Address" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Col md="3">
+                      <Label htmlFor="hf-email">Decimal</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input disabled={this.state.isLoading} innerRef={input => (this.inputs.decimal = input)} type="decimal" name="decimal" placeholder="Decimal" />
                     </Col>
                   </FormGroup>
                 </Form>
