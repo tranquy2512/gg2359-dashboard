@@ -78,8 +78,8 @@ class Token extends Component {
                       this.balances.map(function (balance) {
                         return <tr key={balance.id}>
                           <td><Badge color="secondary">{balance.ticker}</Badge></td>
-                          <td>{balance['Total Amount']}</td>
-                          <td>{balance['Total Amount']}</td>
+                          <td>{balance.mainBalance}</td>
+                          <td>{balance.subBalance}</td>
                           <td><Button onClick={() => {self.moveToHistory(balance.ticker)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button></td>
                         </tr>
                       })
