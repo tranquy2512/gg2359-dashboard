@@ -2,7 +2,10 @@ import BaseService from "../Base";
 
 class Balance {
   getTokenBalances() {
-    return BaseService.get("/balances", BaseService.getOptions());
+    return BaseService.get("/mainBalances", BaseService.getOptions());
+  }
+  getSubBalances(ticker) {
+    return BaseService.get("/subBalances/" + ticker, BaseService.getOptions());
   }
 }
 

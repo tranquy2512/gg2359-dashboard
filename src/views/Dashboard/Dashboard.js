@@ -35,66 +35,7 @@ class Dashboard extends Component {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xs="12" md="6" lg="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i> Deposite
-              </CardHeader>
-              <CardBody>
-                <Form action="" method="post" encType="multipart/form-data" className="form-horizontal">
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="hf-email">Address</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="email" id="hf-email" name="hf-email" placeholder="Enter Address"/>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="hf-email">Amount</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="email" id="hf-email" name="hf-email" placeholder="Amount" />
-                    </Col>
-                  </FormGroup>
-                </Form>
-              </CardBody>
-              <CardFooter>
-                <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Deposite</Button>
-              </CardFooter>
-            </Card>
-          </Col>
-          <Col xs="12" md="6" lg="6">
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i> WithDraw
-              </CardHeader>
-              <CardBody>
-                <Form action="" method="post" encType="multipart/form-data" className="form-horizontal">
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="hf-email">Recipient Address</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="email" id="hf-email" name="hf-email" placeholder="Enter Address"/>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="hf-email">Amount</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="email" id="hf-email" name="hf-email" placeholder="Amount" />
-                    </Col>
-                  </FormGroup>
-                </Form>
-              </CardBody>
-              <CardFooter>
-                <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Withdraw</Button>
-              </CardFooter>
-            </Card>
-          </Col>
+          
         </Row>
       </div>
     )

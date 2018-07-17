@@ -9,6 +9,7 @@ class User extends Component {
   constructor(props) {
     super(props);
     this.users = [];
+    this.baseLink = 'https://rinkeby.etherscan.io/address/';
     this.getUserHistory = this.getUserHistory.bind(this);
     this.moveToHistory = this.moveToHistory.bind(this);
     this.state = {
@@ -67,6 +68,7 @@ class User extends Component {
                   <thead>
                     <tr>
                       <th>Id</th>
+                      <th>Address</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -75,6 +77,7 @@ class User extends Component {
                       this.users.map(function(user) {
                         return <tr key={user.id}>
                         <td>{user.id}</td>
+                        <td><a href={self.baseLink + user.address}>{user.address}</a></td>
                         <td><Button onClick={() => {self.moveToHistory(user.id)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button></td>
                       </tr>
                       })

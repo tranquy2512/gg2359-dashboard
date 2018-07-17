@@ -15,6 +15,7 @@ class Token extends Component {
       isLoading: false
     }
     this.moveToHistory = this.moveToHistory.bind(this);
+    this.loadSubBalance = this.loadSubBalance.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +51,35 @@ class Token extends Component {
     this.props.history.push('/tokens/history/' + tokenId)
   }
 
+  async loadSubBalance(ticker) {
+    try {
+      this.setState({
+        isLoading: true
+      });
+      var result = await balanceService.getSubBalances(ticker);
+      if (result.data) {
+        this.balances.forEach(balance => {
+          if (balance.ticker == ticker) {
+            balance.subBalance = result.data.subBalance;
+          }
+        });
+        this.setState({
+          isLoading: false
+        });
+      } else {
+        this.setState({
+          isLoading: false,
+          isDisableInputs: false
+        });
+      }
+    } catch (err) {
+      console.log(err);
+      this.setState({
+        isLoading: false
+      });
+    }
+  }
+
   render() {
     var self = this;
     return (
@@ -68,6 +98,7 @@ class Token extends Component {
                   <thead>
                     <tr>
                       <th>Ticker</th>
+                      <th>Address</th>
                       <th>Main Wallet's balance</th>
                       <th>Sub Wallet's balance</th>
                       <th>Actions</th>
@@ -78,9 +109,10 @@ class Token extends Component {
                       this.balances.map(function (balance) {
                         return <tr key={balance.id}>
                           <td><Badge color="secondary">{balance.ticker}</Badge></td>
+                          <td>{balance.address}</td>
                           <td>{balance.mainBalance}</td>
-                          <td>{balance.subBalance}</td>
-                          <td><Button onClick={() => {self.moveToHistory(balance.ticker)}} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button></td>
+                          <td>{balance.subBalance ? balance.subBalance : <Button disabled={self.state.isLoading} onClick={() => { self.loadSubBalance(balance.ticker) }} size="sm" color="primary">Load</Button>}</td>
+                          <td><Button disabled={self.state.isLoading} onClick={() => { self.moveToHistory(balance.ticker) }} type="submit" size="sm" color="warning"><i className="fa fa-dot-circle-o"></i> History</Button></td>
                         </tr>
                       })
                     }
