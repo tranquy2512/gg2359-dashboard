@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://staging-server.didynwcwrw.ap-southeast-1.elasticbeanstalk.com/adminPanel/' : 'http://staging-server.didynwcwrw.ap-southeast-1.elasticbeanstalk.com/adminPanel/';
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://fortwallet.didynwcwrw.ap-southeast-1.elasticbeanstalk.com/adminPanel/' : 'http://fortwallet.didynwcwrw.ap-southeast-1.elasticbeanstalk.com/adminPanel/';
 class BaseService {
 
   get(url, config) {
