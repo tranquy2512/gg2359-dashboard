@@ -11,6 +11,11 @@ export default {
       icon: 'fa fa-money'
     },
     {
+      name: 'Withdraw',
+      url: '/withdraw',
+      icon: 'fa fa-cc'
+    },
+    {
       title: true,
       name: "Token Management",
       wrapper: {

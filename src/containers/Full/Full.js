@@ -14,6 +14,7 @@ import EditToken from '../../views/Dashboard/EditToken';
 import User from '../../views/Dashboard/User';
 import UserHistory from '../../views/Dashboard/UserHistory';
 import TokenHistory from '../../views/Dashboard/TokenHistory';
+import WithDraw from '../../views/Dashboard/WithDraw';
 class Full extends Component {
 
   constructor(props) {
@@ -37,6 +38,7 @@ class Full extends Component {
                 <Route exact path="/tokens/history/:ticker" name="Token History" component={TokenHistory} />
                 <Route exact path="/users" name="Users" component={User} />
                 <Route exact path="/users/history/:userId" name="User history" component={UserHistory} />
+                <Route exact path="/withdraw" name="Withdraw" component={WithDraw} />
                 <Redirect from="/" to="/dashboard" />
               </Switch>
             </Container>
